@@ -4,6 +4,7 @@ alacritty
 alsa-utils
 arc-gtk-theme
 bashtop
+curl
 easyeffects
 emacs
 firefox
@@ -43,6 +44,7 @@ sway
 swayidle
 swaylock
 testdisk
+telegram-desktop
 texinfo
 texlive-core
 texlive-latexextra

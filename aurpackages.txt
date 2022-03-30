@@ -1,9 +1,9 @@
-balena-etcher 
 brave-bin
 icons-in-terminal
 librewolf-bin
 ntpclient
 onlyoffice-bin
+spotify
 ttf-material-design-icons-git
 tzupdate
 update-grub
