@@ -1,0 +1,10 @@
+balena-etcher 
+brave-bin
+icons-in-terminal
+librewolf-bin
+ntpclient
+onlyoffice-bin
+ttf-material-design-icons-git
+tzupdate
+update-grub
+vscodium-bin
