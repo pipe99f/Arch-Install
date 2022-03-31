@@ -5,7 +5,6 @@ hwclock --systohc
 sed -i 's/#en_IN UTF-8/en_IN UTF-8/' /etc/locale.gen
 locale-gen
 echo "LANG=en_IN.UTF-8" >> /etc/locale.conf
-echo "KEYMAP=de_CH-latin1" >> /etc/vconsole.conf
 echo "arch" >> /etc/hostname
 echo "127.0.0.1 localhost" >> /etc/hosts
 echo "::1       localhost" >> /etc/hosts
@@ -25,8 +24,6 @@ update-grub
 #systemctl enables 
 systemctl enable NetworkManager
 systemctl enable cups.service
-systemctl enable fstrim.timer
-systemctl enable sshd
 systemctl enable pipewire
 systemctl enable pipewire-pulse
 

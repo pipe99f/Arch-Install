@@ -1,11 +1,12 @@
 #laptop packages (bluetooth, acpi, wifi, etc.)
+#falta hacer un checkbox que especifique que estos packages son para laptop
 cd
 sudo pacman -S acpi acpi_call tlp bluez 
 
 systemctl enable bluetooth
 systemctl enable tlp
 
-
+#arch repository packages
 pacman -S $(cat /home/pipe99g/basicinstall/pacmanpackages.txt)
 
 
@@ -15,6 +16,10 @@ cd yay-bin
 makepkg -si
 
 yay -S $(cat /home/pipe99g/basicinstall/aurpackages.txt)
+
+#flatpaks
+
+
 
 #pipewire setup
 #systemctl --user daemon-reload
@@ -30,3 +35,7 @@ cd dotfiles
 stow -D
 stow *
 
+chsh -s $(which zsh)
+
+#enable services 
+sudo systemctl enable ntpd

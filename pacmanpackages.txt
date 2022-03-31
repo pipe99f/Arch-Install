@@ -23,6 +23,7 @@ imv
 libtool
 lxappearance
 man-db
+mpv
 neofetch
 neovim
 nodejs
@@ -57,6 +58,7 @@ waybar
 wayland
 wget
 which
+wf-recorder
 wl-clipboard
 wofi
 wpa_supplicant
