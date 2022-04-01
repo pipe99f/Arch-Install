@@ -7,35 +7,45 @@ systemctl enable bluetooth
 systemctl enable tlp
 
 #arch repository packages
-pacman -S $(cat /home/pipe99g/basicinstall/pacmanpackages.txt)
+sudo pacman -S $(cat ~/Arch-install/pacmanpackages.txt)
 
 
-#YAY installation
+#YAY installation. NINGUN PAQUETE AUR QUEDÓ INSTALADO CORRECTAMENTE
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
 makepkg -si
 
-yay -S $(cat /home/pipe99g/basicinstall/aurpackages.txt)
+yay -S $(cat ~/Arch-install/aurpackages.txt)
 
 #flatpaks
+flatpak install flathub com.spotify.Client
 
+# vim plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 
 #pipewire setup
 #systemctl --user daemon-reload
 #systemctl --user --now disable pulseaudio.service pulseaudio.socket
-#systemctl --user --now enable pipewire pipewire-pulse
 
+
+#oh my zsh
 cd
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#oh my zsh plugins
+cd ~/.oh-my-zsh/plugins/
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
 
 cd
 git clone https://github.com/pipe99g/dotfiles
-cd dotfiles
-stow -D
-stow *
+bash stow.sh
 
-chsh -s $(which zsh)
+
+#El siguiente comando es redundante porque ohmyzsh pregunta si quiero hacer a zsh el shell predeterminado 
+#chsh -s $(which zsh)
 
 #enable services 
 sudo systemctl enable ntpd
+systemctl --user --now enable pipewire pipewire-pulse
