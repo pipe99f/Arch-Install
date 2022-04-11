@@ -27,6 +27,7 @@ neofetch
 nodejs
 npm
 ntfs-3g
+python-pip
 playerctl
 powerline-fonts
 qbittorrent

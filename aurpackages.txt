@@ -1,7 +1,5 @@
 autojump
 brave-bin
-#failure downloading icons in terminal
-icons-in-terminal
 librewolf-bin
 ntpclient
 onlyoffice-bin
