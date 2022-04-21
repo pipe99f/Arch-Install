@@ -1,2 +1,5 @@
+
+jupyter
 matlib 
-pyvim
+neovim
+pynvim

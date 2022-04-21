@@ -36,7 +36,13 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 #oh my zsh plugins
 cd ~/.oh-my-zsh/plugins/
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+#icons in terminal
+cd ~/Downloads/
+git clone https://github.com/sebastiencs/icons-in-terminal.git
+cd icons-in-terminal/
+./install.sh
 
 cd
 git clone https://github.com/pipe99g/dotfiles

@@ -1,5 +1,6 @@
 autojump
 brave-bin
+joplin
 librewolf-bin
 ntpclient
 onlyoffice-bin
