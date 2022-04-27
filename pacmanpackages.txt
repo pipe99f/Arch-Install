@@ -32,6 +32,9 @@ man-db
 mpv
 neofetch
 nodejs
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
 npm
 ntfs-3g
 python-pip
@@ -39,6 +42,7 @@ playerctl
 powerline-fonts
 qbittorrent
 qt5-wayland
+r
 ranger
 retroarch
 ripgrep
