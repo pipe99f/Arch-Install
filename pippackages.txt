@@ -1,5 +1,6 @@
 
 jupyter
 matlib 
+numpy
 neovim
 pynvim

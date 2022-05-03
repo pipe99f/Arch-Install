@@ -44,6 +44,10 @@ git clone https://github.com/sebastiencs/icons-in-terminal.git
 cd icons-in-terminal/
 ./install.sh
 
+#ranger plugins
+ #ranger icons
+git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+
 cd
 git clone https://github.com/pipe99g/dotfiles
 bash stow.sh
