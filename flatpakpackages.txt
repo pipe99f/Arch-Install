@@ -1,0 +1,2 @@
+com.spotify.Client
+net.cozic.joplin_desktop

@@ -4,3 +4,5 @@ matlib
 numpy
 neovim
 pynvim
+qtpy
+qtconsole
