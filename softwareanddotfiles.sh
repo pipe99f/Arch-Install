@@ -1,9 +1,9 @@
 #laptop packages (bluetooth, acpi, wifi, etc.)
 #falta hacer un checkbox que especifique que estos packages son para laptop
 cd
-sudo pacman -S acpi acpi_call tlp bluez 
+sudo pacman -S acpi acpi_call tlp bluez bluez-utils
 
-systemctl enable bluetooth
+systemctl enable bluetooth.service
 systemctl enable tlp
 
 #arch repository packages
