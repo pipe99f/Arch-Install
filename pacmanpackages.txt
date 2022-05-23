@@ -50,6 +50,7 @@ r
 ranger
 retroarch
 ripgrep
+rsync
 sed
 slurp
 starship

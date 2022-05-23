@@ -4,7 +4,7 @@
 ##primero verifica qué hay repetido
 #la idea sería hacer algo tipo if .bashrc, then mv .bashrc .bashrcold
 #pero en un loop para que verifique cada dotfile
-
+mkdir ~/.config/joplin-desktop
 cd ~/dotfiles
 stow *
 

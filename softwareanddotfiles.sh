@@ -46,6 +46,7 @@ cd icons-in-terminal/
 
 #ranger plugins
  #ranger icons
+cd .config/ranger/plugins/
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 
 cd
@@ -58,4 +59,5 @@ bash stow.sh
 
 #enable services 
 sudo systemctl enable ntpd
-systemctl --user --now enable pipewire pipewire-pulse
+systemctl --user enable pipewire pipewire-pulse
+systemctl enable sshd
