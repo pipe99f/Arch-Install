@@ -6,6 +6,13 @@ sudo pacman -S acpi acpi_call tlp bluez bluez-utils
 systemctl enable bluetooth.service
 systemctl enable tlp
 
+#enabling multilib
+/etc/pacman.conf
+
+sudo echo '[multilib]' >> /etc/pacman.conf
+sudo echo '/etc/pacman.d/mirrorlist' >> /etc/pacman.conf
+sudo pacman -Sy
+
 #arch repository packages
 sudo pacman -S $(cat ~/Arch-install/pacmanpackages.txt)
 

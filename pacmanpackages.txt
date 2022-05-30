@@ -5,6 +5,7 @@ bat
 bashtop
 bluez
 bluez-utils
+cups-pdf
 curl
 discord
 duf
@@ -23,6 +24,7 @@ git-delta
 glfw-wayland
 grep
 grim
+handlr
 htop
 httpie
 imv
@@ -54,12 +56,14 @@ rsync
 sed
 slurp
 starship
+steam
 stow
 sudo
 swappy
 sway
 swayidle
 swaylock
+system-config-printer
 tcl
 testdisk
 telegram-desktop
