@@ -7,3 +7,5 @@ onlyoffice-bin
 tzupdate
 update-grub
 vscodium-bin
+wdisplays-git
+wl-mirror

@@ -1,8 +1,11 @@
-
+geopandas
 jupyter
 matlib 
-numpy
+matplotlib
 neovim
+numpy
+pandas
 pynvim
 qtpy
 qtconsole
+scipy
