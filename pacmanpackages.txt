@@ -46,8 +46,16 @@ papirus-icon-theme
 python-pip
 playerctl
 powerline-fonts
+python-jupyter_client
+python-jupyter_console
+python-jupyter_core
+python-gobject
+python-qtconsole
+python-qtpy
 qbittorrent
 qt5-wayland
+qt6-wayland
+qt5ct
 r
 ranger
 retroarch
