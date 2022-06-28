@@ -43,6 +43,7 @@ noto-fonts-emoji
 npm
 ntfs-3g
 papirus-icon-theme
+pipewire-media-session
 python-pip
 playerctl
 powerline-fonts

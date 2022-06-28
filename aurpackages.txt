@@ -4,6 +4,7 @@ joplin
 librewolf-bin
 ntpclient
 onlyoffice-bin
+pyinstaller
 tzupdate
 update-grub
 vscodium-bin
