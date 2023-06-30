@@ -1,4 +1,5 @@
 geopandas
+jupytext
 matlib 
 matplotlib
 neovim

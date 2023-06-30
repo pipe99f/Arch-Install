@@ -1,12 +1,10 @@
-autojump
 brave-bin
+ferdium-bin
 joplin
 librewolf-bin
-ntpclient
 onlyoffice-bin
-pyinstaller
+python-jupytext
+timeshift
 tzupdate
-update-grub
-vscodium-bin
 wdisplays-git
 wl-mirror
