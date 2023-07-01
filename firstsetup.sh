@@ -40,3 +40,16 @@ sed -i 's/MODULES=()/MODULES=(btrfs)/' /etc/mkinitcpio.conf
 
 #fastest mirrors
 reflector --latest 20 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+
+#I/O scheduler
+touch /etc/udev/rules.d/60.ioschedulers.rules
+tee -a /etc/udev/rules.d/60.ioschedulers.rules <<END
+# HDD
+ACTION=="add|change", KERNEL=="sd[a-z]*", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
+
+# SSD
+ACTION=="add|change", KERNEL=="sd[a-z]*|mmcblk[0-9]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="bfq"
+
+# NVMe SSD
+ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="none"
+END

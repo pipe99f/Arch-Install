@@ -32,9 +32,8 @@ noto-fonts-cjk
 noto-fonts-emoji
 prettier
 powerline-fonts
-python-jupyter_client
-python-jupyter_console
-python-jupyter_core
+python-jupyter-client
+python-jupyter-core
 python-gobject
 python-pip
 python-qtconsole

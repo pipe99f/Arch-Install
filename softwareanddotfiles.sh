@@ -30,13 +30,14 @@ sudo pacman -Sy
 sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
 
 #install basic packages
-sudo pacman -S "$(cat ~/Arch-install/pacmanpackages.txt)"
+sudo pacman --needed -S - <"$HOME"/Arch-install/basicpacman.txt
 
 #create basic directories
 xdg-user-dirs-update
 
 #YAY installation. NINGUN PAQUETE AUR QUEDÓ INSTALADO CORRECTAMENTE
 git clone https://aur.archlinux.org/yay-bin.git
+cronie
 cd yay-bin
 makepkg -si
 
@@ -57,12 +58,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM
 
 #tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-#icons in terminal
-cd ~/Downloads/
-git clone https://github.com/sebastiencs/icons-in-terminal.git
-cd icons-in-terminal/
-./install.sh
 
 #ranger plugins
 #ranger icons
@@ -89,5 +84,7 @@ systemctl enable paccache.timer
 systemctl enable ufw.service
 systemctl enable archlinux-keyring-wkd-sync.timer
 systemctl enable cups.service
+systemctl enable cronie.service
 #si se usa ssd
 systemctl enable fstrim.timer
+systemctl enable grub-btrfsd

@@ -1,5 +1,6 @@
 alacritty
 cargo
+cronie
 curl
 exa
 fd
@@ -12,6 +13,7 @@ grim
 grub-btrfs
 handlr
 htop
+inotify-tools
 libtool
 meson
 neofetch
@@ -20,6 +22,7 @@ nodejs
 npm
 ntfs-3g
 perl
+pacman-contrib
 pipewire-media-session
 qt5-wayland
 qt6-wayland
