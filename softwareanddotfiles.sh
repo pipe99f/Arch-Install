@@ -1,10 +1,17 @@
-#laptop packages (bluetooth, acpi, wifi, etc.)
-#falta hacer un checkbox que especifique que estos packages son para laptop
-cd
-sudo pacman -S acpi acpi_call tlp bluez bluez-utils brightnessctl
+#!/bin/bash
 
-systemctl enable bluetooth.service
-systemctl enable tlp
+echo "Is this a laptop?"
+select yn in "Yes" "No"; do
+	case $yn in
+	Yes)
+		sudo pacman -S acpi acpi_call tlp bluez bluez-utils brightnessctl wireless_tools
+		systemctl enable bluetooth.service
+		systemctl enable tlp
+		break
+		;;
+	No) exit ;;
+	esac
+done
 
 #Hook that deletes pacman cache
 # mkdir /etc/pacman.d/hooks && touch /etc/pacman.d/clean_pacman_cache.hook
@@ -27,7 +34,7 @@ sudo echo 'Include = /etc/pacman.d/mirrorlist' >>/etc/pacman.conf
 sudo pacman -Sy
 
 #enable parallel downloads
-sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
+sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
 
 #install basic packages
 sudo pacman --needed -S - <"$HOME"/Arch-install/basicpacman.txt
@@ -36,19 +43,18 @@ sudo pacman --needed -S - <"$HOME"/Arch-install/basicpacman.txt
 xdg-user-dirs-update
 
 #YAY installation. NINGUN PAQUETE AUR QUEDÓ INSTALADO CORRECTAMENTE
-git clone https://aur.archlinux.org/yay-bin.git
-cronie
-cd yay-bin
+git clone https://aur.archlinux.org/yay-bin.git "$HOME"/yay-bin
+cd "$HOME"/yay-bin
 makepkg -si
 
-yay -S "$(cat ~/Arch-install/aurpackages.txt)"
+# yay -S $(tr -s '\n' ' ' <"$HOME"/Arch-install/aurpackages.txt)
+# yay -S $(cat ~/Arch-install/aurpackages.txt)
 
 #pipewire setup
 #systemctl --user daemon-reload
 #systemctl --user --now disable pulseaudio.service pulseaudio.socket
 
 #oh my zsh
-cd
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 #oh my zsh plugins
 cd ~/.oh-my-zsh/plugins/
@@ -61,12 +67,20 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 #ranger plugins
 #ranger icons
-cd .config/ranger/plugins/
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 
-cd
-git clone https://github.com/pipe99g/dotfiles
-bash stow.sh
+#custom .desktop
+touch "$HOME"/.local/share/applications/steamgamemode.desktop
+tee -a "$HOME"/.local/share/applications/steamgamemode.desktop <<END
+[Desktop Entry]
+Name=Steam gamemode
+Comment= Gamemode
+Exec=gamemoderun steam-runtime
+Icon=steam
+Terminal=false
+Type=Application
+Categories=Game;
+END
 
 #default applications
 handlr set inode/directory thunar.desktop
@@ -78,8 +92,19 @@ handlr set inode/directory thunar.desktop
 # sudo grub-mkconfig -o /boot/grub/grub.cfg
 # sudo grub-install --efi-directory=/boot
 
+#Stow
+git clone https://github.com/pipe99g/dotfiles "$HOME"/dotfiles
+cd "$HOME"/dotfiles
+mkdir "$HOME"/.config/joplin && rm "$HOME"/.zshrc "$HOME"/.config/atuin/config.toml && stow *
+
+#tmux sessions
+chmod u+x "$HOME"/dotfiles/scripts/scripts/t
+sudo ln -s "$HOME"/scripts/t /usr/bin/t
+
 #enable services
-systemctl --user enable pipewire pipewire-pulse
+systemctl --user enable --now pipewire.socket
+systemctl --user enable --now pipewire-pulse.socket
+systemctl --user enable --now wireplumber.service
 systemctl enable paccache.timer
 systemctl enable ufw.service
 systemctl enable archlinux-keyring-wkd-sync.timer

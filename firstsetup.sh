@@ -12,7 +12,7 @@ echo "127.0.1.1 arch.localdomain arch" >>/etc/hosts
 passwd
 
 #important packages NO ESTÁ SIRVIENDO
-pacman -S grub networkmanager network-manager-applet dialog wpa_supplicant mtools dosfstools linux-headers reflector avahi xdg-user-dirs xdg-utils os-prober openssh gvfs pipewire pipewire-alsa pipewire-pulse efibootmgr ntp
+pacman -S grub networkmanager network-manager-applet dialog wpa_supplicant mtools dosfstools linux-headers reflector avahi xdg-user-dirs xdg-utils os-prober openssh gvfs pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber efibootmgr ntp
 
 #grub config
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
@@ -30,10 +30,23 @@ systemctl enable avahi-daemon
 systemctl enable ntpd.service
 
 #user setup
-useradd -m pipe99g
-passwd pipe99g
-usermod -aG wheel pipe99g
-echo "%wheel ALL=(ALL) ALL" >>/etc/sudoers.d/pipe99g
+
+while true; do
+	read -p "Enter your username: " username
+	read -p "Please re-enter your username: " username_confirm
+
+	if [ "$username" == "$username_confirm" ]; then
+		echo "Username confirmed: $username"
+		break
+	else
+		echo "Username verification failed. Please try again."
+	fi
+done
+
+useradd -m "$username"
+passwd "$username"
+usermod -aG wheel "$username"
+echo "%wheel ALL=(ALL) ALL" >>/etc/sudoers.d/"$username"
 
 #only for btrfs filesystem
 sed -i 's/MODULES=()/MODULES=(btrfs)/' /etc/mkinitcpio.conf

@@ -1,6 +1,9 @@
 alacritty
+atuin
+autotiling-rs
 cargo
 cronie
+cups
 curl
 exa
 fd
@@ -15,6 +18,7 @@ handlr
 htop
 inotify-tools
 libtool
+linux-lts
 meson
 neofetch
 ninja
@@ -51,5 +55,6 @@ wl-clipboard
 wofi
 xorg-xlsclients
 xorg-xwayland
+zoxide
 zsh
 zsh-completions
