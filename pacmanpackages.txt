@@ -12,9 +12,11 @@ dust
 easyeffects
 emacs
 fennel
+gamemode
 gcc-fortran
 geckodriver
 gitui
+go
 helvum
 httpie
 i3lock

@@ -12,7 +12,7 @@ echo "127.0.1.1 arch.localdomain arch" >>/etc/hosts
 passwd
 
 #important packages NO ESTÁ SIRVIENDO
-pacman -S grub networkmanager network-manager-applet dialog wpa_supplicant mtools dosfstools linux-headers reflector avahi xdg-user-dirs xdg-utils os-prober openssh gvfs pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber efibootmgr ntp
+pacman -S grub networkmanager network-manager-applet dialog wpa_supplicant mtools dosfstools linux-headers reflector avahi xdg-user-dirs xdg-utils os-prober openssh gvfs pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber efibootmgr ntp acpid nss-mdns iptables-nft dnsmasq openbsd-netcat
 
 #grub config
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
@@ -28,6 +28,7 @@ systemctl enable sshd.service
 systemctl enable reflector.timer
 systemctl enable avahi-daemon
 systemctl enable ntpd.service
+systemctl enable acpid
 
 #user setup
 

@@ -5,6 +5,5 @@ librewolf-bin
 onlyoffice-bin
 python-jupytext
 timeshift
-tzupdate
 wdisplays-git
 wl-mirror

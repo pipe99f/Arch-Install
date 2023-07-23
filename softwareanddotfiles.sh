@@ -9,7 +9,7 @@ select yn in "Yes" "No"; do
 		systemctl enable tlp
 		break
 		;;
-	No) exit ;;
+	No) break ;;
 	esac
 done
 
@@ -27,6 +27,8 @@ done
 # When = PostTransaction
 # Exec = /usr/bin/paccache -r
 # END
+
+touch "$HOME"/.priv
 
 #enabling multilib
 sudo echo '[multilib]' >>/etc/pacman.conf
@@ -54,22 +56,23 @@ makepkg -si
 #systemctl --user daemon-reload
 #systemctl --user --now disable pulseaudio.service pulseaudio.socket
 
-#oh my zsh
+#oh my zsh, do not execute with root
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 #oh my zsh plugins
-cd ~/.oh-my-zsh/plugins/
+cd "$HOME"/.oh-my-zsh/plugins/
 git clone https://github.com/Aloxaf/fzf-tab "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/fzf-tab
 git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
 
 #tmux plugin manager
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm "$HOME"/.tmux/plugins/tpm
 
 #ranger plugins
 #ranger icons
-git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+git clone https://github.com/alexanderjeurissen/ranger_devicons "$HOME"/.config/ranger/plugins/ranger_devicons
 
 #custom .desktop
+mkdir "$HOME"/.local/share/applications
 touch "$HOME"/.local/share/applications/steamgamemode.desktop
 tee -a "$HOME"/.local/share/applications/steamgamemode.desktop <<END
 [Desktop Entry]
@@ -95,7 +98,7 @@ handlr set inode/directory thunar.desktop
 #Stow
 git clone https://github.com/pipe99g/dotfiles "$HOME"/dotfiles
 cd "$HOME"/dotfiles
-mkdir "$HOME"/.config/joplin && rm "$HOME"/.zshrc "$HOME"/.config/atuin/config.toml && stow *
+mkdir "$HOME"/.config/joplin && rm "$HOME"/.zshrc "$HOME"/.bashrc "$HOME"/.bash_profile "$HOME"/.config/atuin/config.toml && stow *
 
 #tmux sessions
 chmod u+x "$HOME"/dotfiles/scripts/scripts/t
