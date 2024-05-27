@@ -1,9 +1,10 @@
 brave-bin
-ferdium-bin
 joplin
 librewolf-bin
 onlyoffice-bin
 python-jupytext
+quarto-cli-bin
+radian
 timeshift
 wdisplays-git
 wl-mirror

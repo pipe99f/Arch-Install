@@ -67,3 +67,6 @@ ACTION=="add|change", KERNEL=="sd[a-z]*|mmcblk[0-9]*", ATTR{queue/rotational}=="
 # NVMe SSD
 ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="none"
 END
+
+# Solves 'unable to lock database' error that prevents using pacman.
+rm /var/lib/pacman/db.lck

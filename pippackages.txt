@@ -1,10 +1,7 @@
 geopandas
-jupytext
 matlib 
 matplotlib
-neovim
 numpy
 pandas
 pip-review
-pynvim
 scipy

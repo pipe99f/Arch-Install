@@ -1,6 +1,6 @@
 alsa-utils
 baobab
-bashtop
+btop
 bat
 chromium
 cpanminus
@@ -24,6 +24,8 @@ i3status
 i3-wm
 imv
 jq
+jupyter-console
+kolourpaint
 lib32-gamemode
 lxappearance
 man-db
@@ -33,13 +35,17 @@ ncdu
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
+pandoc-cli
 pavucontrol
+pdfarranger
 prettier
 powerline-fonts
 python-jupyter-client
 python-jupyter-core
 python-gobject
 python-pip
+python-pynvim
+python-pytest
 python-qtconsole
 python-qtpy
 qbittorrent
@@ -53,8 +59,11 @@ tcl
 testdisk
 texinfo
 texlive-basic
+texlive-binextra
+texlive-langspanish
 texlive-latex
 texlive-latexextra
+texlive-latexrecommended
 texlive-mathscience
 tidy
 tk
@@ -64,6 +73,10 @@ unrar
 unzip
 visidata
 wf-recorder
+xclip
+xorg-server
+xorg-xinit
+xorg-xrandr
 xournalpp
 zathura
 zathura-djvu

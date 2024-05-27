@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Check for Oh My Zsh installation
+if [ -f ~/.oh-my-zsh/oh-my-zsh.sh ]; then
+	echo "Oh My Zsh is already installed."
+else
+	# Oh My Zsh is not installed
+	echo "Oh My Zsh is not installed."
+	echo 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+	exit 1
+fi
+
 echo "Is this a laptop?"
 select yn in "Yes" "No"; do
 	case $yn in
@@ -57,12 +67,11 @@ makepkg -si
 #systemctl --user --now disable pulseaudio.service pulseaudio.socket
 
 #oh my zsh, do not execute with root
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 #oh my zsh plugins
-cd "$HOME"/.oh-my-zsh/plugins/
-git clone https://github.com/Aloxaf/fzf-tab "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/fzf-tab
-git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
+git clone https://github.com/Aloxaf/fzf-tab "$HOME"/.oh-my-zsh/custom/plugins/fzf-tab
+git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME"/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME"/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 #tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm "$HOME"/.tmux/plugins/tpm
@@ -101,8 +110,8 @@ cd "$HOME"/dotfiles
 mkdir "$HOME"/.config/joplin && rm "$HOME"/.zshrc "$HOME"/.bashrc "$HOME"/.bash_profile "$HOME"/.config/atuin/config.toml && stow *
 
 #tmux sessions
-chmod u+x "$HOME"/dotfiles/scripts/scripts/t
-sudo ln -s "$HOME"/scripts/t /usr/bin/t
+# chmod u+x "$HOME"/dotfiles/scripts/scripts/t
+# sudo ln -s "$HOME"/scripts/t /usr/bin/t
 
 #enable services
 systemctl --user enable --now pipewire.socket
