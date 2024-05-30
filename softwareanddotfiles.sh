@@ -41,12 +41,16 @@ done
 touch "$HOME"/.priv
 
 #enabling multilib
-sudo echo '[multilib]' >>/etc/pacman.conf
-sudo echo 'Include = /etc/pacman.d/mirrorlist' >>/etc/pacman.conf
+echo '[multilib]' | sudo tee -a /etc/pacman.conf
+echo 'Include = /etc/pacman.d/mirrorlist' | sudo tee -a /etc/pacman.conf
 sudo pacman -Sy
 
 #enable parallel downloads
 sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
+
+#environment variables for qt6ct (not recommended this way)
+# echo 'QT_QPA_PLATFORM=wayland' | sudo tee -a /etc/environment.d/qt6.conf
+# echo 'QT_QPA_PLATFORMTHEME=qt6ct' | sudo tee -a /etc/environment.d/qt6.conf
 
 #install basic packages
 sudo pacman --needed -S - <"$HOME"/Arch-install/basicpacman.txt
@@ -61,10 +65,6 @@ makepkg -si
 
 # yay -S $(tr -s '\n' ' ' <"$HOME"/Arch-install/aurpackages.txt)
 # yay -S $(cat ~/Arch-install/aurpackages.txt)
-
-#pipewire setup
-#systemctl --user daemon-reload
-#systemctl --user --now disable pulseaudio.service pulseaudio.socket
 
 #oh my zsh, do not execute with root
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

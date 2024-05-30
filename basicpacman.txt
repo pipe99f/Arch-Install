@@ -18,6 +18,7 @@ htop
 inotify-tools
 libtool
 linux-lts
+imagemagick
 meson
 neofetch
 ninja
