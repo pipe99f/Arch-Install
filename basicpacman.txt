@@ -3,7 +3,6 @@ autotiling-rs
 cargo
 cronie
 cups
-curl
 exa
 fd
 firefox
@@ -45,6 +44,7 @@ swayidle
 swaylock
 thefuck
 thunar
+timeshift
 tmux
 ufw
 waybar

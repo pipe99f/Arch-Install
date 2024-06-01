@@ -6,6 +6,4 @@ onlyoffice-bin
 python-jupytext
 quarto-cli-bin
 radian
-timeshift
 wdisplays-git
-wl-mirror

@@ -7,6 +7,7 @@ else
 	# Oh My Zsh is not installed
 	echo "Oh My Zsh is not installed."
 	echo 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	exit 1
 fi
 
@@ -53,7 +54,7 @@ sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
 # echo 'QT_QPA_PLATFORMTHEME=qt6ct' | sudo tee -a /etc/environment.d/qt6.conf
 
 #install basic packages
-sudo pacman --needed -S - <"$HOME"/Arch-install/basicpacman.txt
+sudo pacman --needed -S - <"$HOME"/Arch-Install/basicpacman.txt
 
 #create basic directories
 xdg-user-dirs-update
@@ -63,8 +64,8 @@ git clone https://aur.archlinux.org/yay-bin.git "$HOME"/yay-bin
 cd "$HOME"/yay-bin
 makepkg -si
 
-# yay -S $(tr -s '\n' ' ' <"$HOME"/Arch-install/aurpackages.txt)
-# yay -S $(cat ~/Arch-install/aurpackages.txt)
+# yay -S $(tr -s '\n' ' ' <"$HOME"/Arch-Install/aurpackages.txt)
+# yay -S $(cat ~/Arch-Install/aurpackages.txt)
 
 #oh my zsh, do not execute with root
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -105,9 +106,10 @@ handlr set inode/directory thunar.desktop
 # sudo grub-install --efi-directory=/boot
 
 #Stow
-git clone https://github.com/pipe99g/dotfiles "$HOME"/dotfiles
+git clone https://github.com/pipe99f/dotfiles "$HOME"/dotfiles
 cd "$HOME"/dotfiles
-mkdir "$HOME"/.config/joplin && rm "$HOME"/.zshrc "$HOME"/.bashrc "$HOME"/.bash_profile "$HOME"/.config/atuin/config.toml && stow *
+mkdir "$HOME"/.config/joplin && rm "$HOME"/.zshrc "$HOME"/.bashrc "$HOME"/.bash_profile "$HOME"/.config/atuin/config.toml
+stow *
 
 #tmux sessions
 # chmod u+x "$HOME"/dotfiles/scripts/scripts/t
