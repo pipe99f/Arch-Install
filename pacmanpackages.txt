@@ -19,6 +19,7 @@ gitui
 go
 helvum
 httpie
+hub
 i3lock
 i3status
 i3-wm
@@ -74,6 +75,7 @@ texlive-mathscience
 tidy
 tk
 tldr
+tmuxp
 ttf-font-awesome
 uncrustify
 unrar

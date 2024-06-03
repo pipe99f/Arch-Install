@@ -1,7 +1,0 @@
-geopandas
-matlib 
-matplotlib
-numpy
-pandas
-pip-review
-scipy

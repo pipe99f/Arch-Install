@@ -1,9 +1,6 @@
 adwaita-qt6-git
 brave-bin
-joplin
 librewolf-bin
 onlyoffice-bin
-python-jupytext
 quarto-cli-bin
-radian
 wdisplays-git

@@ -49,10 +49,6 @@ sudo pacman -Sy
 #enable parallel downloads
 sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
 
-#environment variables for qt6ct (not recommended this way)
-# echo 'QT_QPA_PLATFORM=wayland' | sudo tee -a /etc/environment.d/qt6.conf
-# echo 'QT_QPA_PLATFORMTHEME=qt6ct' | sudo tee -a /etc/environment.d/qt6.conf
-
 #install basic packages
 sudo pacman --needed -S - <"$HOME"/Arch-Install/basicpacman.txt
 
@@ -97,13 +93,6 @@ END
 
 #default applications
 handlr set inode/directory thunar.desktop
-
-#El siguiente comando es redundante porque ohmyzsh pregunta si quiero hacer a zsh el shell predeterminado
-#chsh -s $(which zsh)
-
-#Para agregar LTS al GRUB (no sé si así funciona)
-# sudo grub-mkconfig -o /boot/grub/grub.cfg
-# sudo grub-install --efi-directory=/boot
 
 #Stow
 git clone https://github.com/pipe99f/dotfiles "$HOME"/dotfiles
