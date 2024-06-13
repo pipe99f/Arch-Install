@@ -26,6 +26,7 @@ npm
 ntfs-3g
 perl
 pacman-contrib
+pkgfile
 qt5-wayland
 qt6-wayland
 qt5ct
@@ -58,4 +59,3 @@ xorg-xlsclients
 xorg-xwayland
 zoxide
 zsh
-zsh-completions

@@ -1,13 +1,9 @@
 #!/bin/bash
 
 # Check for Oh My Zsh installation
-if [ -f ~/.oh-my-zsh/oh-my-zsh.sh ]; then
-	echo "Oh My Zsh is already installed."
-else
-	# Oh My Zsh is not installed
-	echo "Oh My Zsh is not installed."
-	echo 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if [[ "$SHELL" != "/usr/bin/zsh" ]]; then
+	echo "Zsh is not the default shell"
+	echo "Run chsh -s /usr/bin/zsh"
 	exit 1
 fi
 
@@ -39,7 +35,9 @@ done
 # Exec = /usr/bin/paccache -r
 # END
 
+# Some empty folders and files that I prefer to create now
 touch "$HOME"/.priv
+mkdir "$HOME"/Downloads/firefox
 
 #enabling multilib
 echo '[multilib]' | sudo tee -a /etc/pacman.conf
@@ -52,6 +50,9 @@ sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
 #install basic packages
 sudo pacman --needed -S - <"$HOME"/Arch-Install/basicpacman.txt
 
+#make pkgfile work
+pkgfile -u
+
 #create basic directories
 xdg-user-dirs-update
 
@@ -62,13 +63,6 @@ makepkg -si
 
 # yay -S $(tr -s '\n' ' ' <"$HOME"/Arch-Install/aurpackages.txt)
 # yay -S $(cat ~/Arch-Install/aurpackages.txt)
-
-#oh my zsh, do not execute with root
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-#oh my zsh plugins
-git clone https://github.com/Aloxaf/fzf-tab "$HOME"/.oh-my-zsh/custom/plugins/fzf-tab
-git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME"/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME"/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 #tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm "$HOME"/.tmux/plugins/tpm
@@ -100,10 +94,6 @@ cd "$HOME"/dotfiles
 mkdir "$HOME"/.config/joplin && rm "$HOME"/.zshrc "$HOME"/.bashrc "$HOME"/.bash_profile "$HOME"/.config/atuin/config.toml
 stow *
 
-#tmux sessions
-# chmod u+x "$HOME"/dotfiles/scripts/scripts/t
-# sudo ln -s "$HOME"/scripts/t /usr/bin/t
-
 #enable services
 systemctl --user enable --now pipewire.socket
 systemctl --user enable --now pipewire-pulse.socket
@@ -113,6 +103,7 @@ systemctl enable ufw.service
 systemctl enable archlinux-keyring-wkd-sync.timer
 systemctl enable cups.service
 systemctl enable cronie.service
+systemctl enable pkgfile-update.timer
 #si se usa ssd
 systemctl enable fstrim.timer
 systemctl enable grub-btrfsd
