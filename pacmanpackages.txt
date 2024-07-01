@@ -2,6 +2,7 @@ alsa-utils
 baobab
 btop
 bat
+calibre
 chromium
 cpanminus
 cups
@@ -12,6 +13,7 @@ dust
 easyeffects
 emacs
 fennel
+ffmpegthumbnailer
 gamemode
 gcc-fortran
 geckodriver
@@ -40,8 +42,9 @@ noto-fonts-emoji
 pandoc-cli
 pavucontrol
 pdfarranger
-prettier
+poppler
 powerline-fonts
+prettier
 python-cairosvg
 python-gobject
 python-jupyter-client
@@ -77,6 +80,7 @@ tk
 tldr
 tmuxp
 ttf-font-awesome
+unarchiver
 uncrustify
 unrar
 unzip

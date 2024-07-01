@@ -12,7 +12,7 @@ glfw-wayland
 grep
 grim
 grub-btrfs
-handlr
+handlr-regex
 htop
 inotify-tools
 libtool
@@ -30,7 +30,6 @@ pkgfile
 qt5-wayland
 qt6-wayland
 qt5ct
-ranger
 ripgrep
 rsync
 slurp
@@ -55,7 +54,7 @@ wget
 which
 wl-clipboard
 wofi
+yazi
 xorg-xlsclients
 xorg-xwayland
 zoxide
-zsh

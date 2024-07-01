@@ -67,10 +67,6 @@ makepkg -si
 #tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm "$HOME"/.tmux/plugins/tpm
 
-#ranger plugins
-#ranger icons
-git clone https://github.com/alexanderjeurissen/ranger_devicons "$HOME"/.config/ranger/plugins/ranger_devicons
-
 #custom .desktop
 mkdir "$HOME"/.local/share/applications
 touch "$HOME"/.local/share/applications/steamgamemode.desktop
@@ -86,12 +82,13 @@ Categories=Game;
 END
 
 #default applications
-handlr set inode/directory thunar.desktop
+# handlr set inode/directory thunar.desktop
+# handlr set application/pdf org.pwmt.zathura.desktop
 
 #Stow
 git clone https://github.com/pipe99f/dotfiles "$HOME"/dotfiles
 cd "$HOME"/dotfiles
-mkdir "$HOME"/.config/joplin && rm "$HOME"/.zshrc "$HOME"/.bashrc "$HOME"/.bash_profile "$HOME"/.config/atuin/config.toml
+mkdir "$HOME"/.config/joplin && rm "$HOME"/.zshrc "$HOME"/.bashrc "$HOME"/.bash_profile "$HOME"/.config/atuin/config.toml "$HOME"/.config/mimeapps.list
 stow *
 
 #enable services
